@@ -15,7 +15,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -35,9 +34,8 @@ public class Perfil implements Serializable{
 	
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
-	@NotNull(message = "Data é uma informação obrigatória.")
-	@Column(name="data_cadastro_perfil", nullable = false)
-	private Date dataCadastroUsuario;
+	@Column(name="data_cadastro_perfil")
+	private Date dataCadastroPerfil;
 	
 	@Column(name="status_perfil")
 	private String statusPerfil;
@@ -64,14 +62,6 @@ public class Perfil implements Serializable{
 		this.descPerfil = descPerfil;
 	}
 
-	public Date getDataCadastroUsuario() {
-		return dataCadastroUsuario;
-	}
-
-	public void setDataCadastroUsuario(Date dataCadastroUsuario) {
-		this.dataCadastroUsuario = dataCadastroUsuario;
-	}
-
 
 	public List<Usuario> getListaUsuario() {
 		return listaUsuario;
@@ -87,6 +77,14 @@ public class Perfil implements Serializable{
 
 	public void setStatusPerfil(String statusPerfil) {
 		this.statusPerfil = statusPerfil;
+	}
+
+	public Date getDataCadastroPerfil() {
+		return dataCadastroPerfil;
+	}
+
+	public void setDataCadastroPerfil(Date dataCadastroPerfil) {
+		this.dataCadastroPerfil = dataCadastroPerfil;
 	}
 	
 

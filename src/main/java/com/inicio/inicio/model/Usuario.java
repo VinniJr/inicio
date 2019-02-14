@@ -13,13 +13,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-@Entity(name = "usuario")
+@Entity
+@Table(name="Usuario")
 public class Usuario implements Serializable {
 
 	
@@ -42,12 +43,11 @@ public class Usuario implements Serializable {
 	
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
-	@NotNull(message = "Data é uma informação obrigatória.")
-	@Column(name="data_cadastro_usuario", nullable = false)
+	@Column(name="data_cadastro_usuario")
 	private Date dataCadastroUsuario;
 	
 	@Column(name="status_usuario")
-	private Boolean statusUsuario;
+	private String statusUsuario;
 	
 	@Column(name="senha_usuario")
 	private String senhaUsuario;
@@ -91,14 +91,6 @@ public class Usuario implements Serializable {
 		this.cpf = cpf;
 	}
 
-	public Boolean getStatusUsuario() {
-		return statusUsuario;
-	}
-
-	public void setStatusUsuario(Boolean statusUsuario) {
-		this.statusUsuario = statusUsuario;
-	}
-
 	public String getSenhaUsuario() {
 		return senhaUsuario;
 	}
@@ -121,6 +113,14 @@ public class Usuario implements Serializable {
 
 	public void setListaPerfil(List<Perfil> listaPerfil) {
 		this.listaPerfil = listaPerfil;
+	}
+
+	public String getStatusUsuario() {
+		return statusUsuario;
+	}
+
+	public void setStatusUsuario(String statusUsuario) {
+		this.statusUsuario = statusUsuario;
 	}
 	
 	

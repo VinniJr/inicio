@@ -29,5 +29,9 @@ public class PerfilService {
 	public void delete(Long id) {
 		repository.delete(id);
 	}
+	
+	 public Perfil perfilUsuario(String cpf) {
+		 return repository.perfilUsuario(cpf);
+	 }
 
 }

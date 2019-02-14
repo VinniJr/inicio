@@ -29,5 +29,9 @@ public class UsuarioService {
 	public void delete(Long id) {
 		repository.delete(id);
 	}
+	
+	public Usuario buscarClientePorCPF(String cpf) {
+		return repository.buscarClientePorCPF(cpf);
+	}
 
 }
